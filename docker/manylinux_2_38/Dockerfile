@@ -1,7 +1,7 @@
 # Version: 20250828
-# Image name: quay.io/opencv-ci/opencv-python-manylinux2014-x86-64
+# Image name: ghcr.io/loongson-cloud-community/opencv-python-manylinux_2_38-loongarch64
 
-FROM lcr.loongnix.cn/pypa/manylinux2_38_loongarch64:latest
+FROM lcr.loongnix.cn/pypa/manylinux_2_38_loongarch64:latest
 
 ARG CCACHE_VERSION=3.7.9
 ARG FFMPEG_VERSION=5.1.6
