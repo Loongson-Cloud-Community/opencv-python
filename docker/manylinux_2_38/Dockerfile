@@ -148,15 +148,17 @@ RUN curl -O -L https://github.com/ccache/ccache/releases/download/v${CCACHE_VERS
     rm -rf ccache-${CCACHE_VERSION}.tar.gz
 
 # GitHub Actions user`s UID is 1001
-RUN useradd ci -m -s /bin/bash -G users --uid=1001 && \
-    mkdir /io && \
-    chown -R ci:ci /io && \
-    # This needs to find ffmpeg packages from ci user
-    chown -R ci:ci /ffmpeg_build && \
-    # This calls in mutlibuild scripts and cannot be run without permissions
-    chown -R ci:ci /opt/_internal/pipx/venvs/auditwheel
+#RUN useradd ci -m -s /bin/bash -G users --uid=1001 && \
+#    mkdir /io && \
+#    chown -R ci:ci /io && \
+#    # This needs to find ffmpeg packages from ci user
+#    chown -R ci:ci /ffmpeg_build && \
+#    # This calls in mutlibuild scripts and cannot be run without permissions
+#    chown -R ci:ci /opt/_internal/pipx/venvs/auditwheel
 
-USER ci
+#USER ci
+
+RUN mkdir /io
 
 # Git security vulnerability: https://github.blog/2022-04-12-git-security-vulnerability-announced
 RUN git config --global --add safe.directory /io
